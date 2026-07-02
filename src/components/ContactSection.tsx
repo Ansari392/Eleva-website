@@ -1,3 +1,4 @@
+import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -36,14 +37,37 @@ export function ContactSection() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // In a real app, this would send an API request
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+  try {
+    await emailjs.send(
+      "service_cv4c8p2",
+      "template_ubbmu3g",
+      {
+        name: values.fullName,
+        email: values.email,
+        phone: values.phone,
+        message: values.message,
+        title: "New Website Inquiry",
+      },
+      "c-bzuueqyD5dbTIA5"
+    );
+
     toast({
       title: "Message sent successfully",
       description: "One of our premium agents will contact you shortly.",
     });
+
     form.reset();
+  } catch (error) {
+    console.error(error);
+
+    toast({
+      title: "Failed to send message",
+      description: "Please try again later.",
+      variant: "destructive",
+    });
   }
+}
 
   return (
     <section id="contact" className="py-24 bg-card border-t border-border">
