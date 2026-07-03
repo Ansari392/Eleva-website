@@ -59,15 +59,15 @@ export function Footer() {
             <ul className="space-y-4 text-gray-400 text-sm">
               <li className="flex flex-col">
                 <span className="text-white font-medium mb-1">Address</span>
-                Level 42, Boulevard Plaza Tower 1<br />Downtown Dubai, UAE
+                Islamabad, Pakistan<br />By Appointment Only
               </li>
               <li className="flex flex-col">
                 <span className="text-white font-medium mb-1">Phone</span>
-                <a href="tel:+97140000000" className="hover:text-primary transition-colors">+971 4 000 0000</a>
+                <a href="tel:+923177124207" className="hover:text-primary transition-colors">+92 317 712 4207</a>
               </li>
               <li className="flex flex-col">
                 <span className="text-white font-medium mb-1">Email</span>
-                <a href="mailto:vip@eleva.com" className="hover:text-primary transition-colors">vip@eleva.com</a>
+                <a href="mailto:a77027785@gmail.com" className="hover:text-primary transition-colors">a77027785@gmail.com</a>
               </li>
             </ul>
           </div>

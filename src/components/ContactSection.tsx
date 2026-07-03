@@ -82,7 +82,7 @@ export function ContactSection() {
             <h2 className="text-primary font-medium tracking-widest uppercase mb-3 text-sm">Get In Touch</h2>
             <h3 className="text-3xl md:text-5xl font-bold text-white mb-6">Contact Our Private Office</h3>
             <p className="text-gray-400 text-lg mb-10 leading-relaxed">
-              Experience discreet, personalized service. Visit our downtown Dubai office or schedule a private consultation at a location of your choice.
+              By Appointment Only.
             </p>
 
             <div className="space-y-8">
@@ -91,8 +91,8 @@ export function ContactSection() {
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-white mb-1">Dubai Headquarters</h4>
-                  <p className="text-gray-400">Level 42, Boulevard Plaza Tower 1<br/>Downtown Dubai, UAE</p>
+                  <h4 className="text-lg font-bold text-white mb-1">Pakistan</h4>
+                  <p className="text-gray-400">Islamabad, Pakistan<br/>By Appointment Only</p>
                 </div>
               </div>
 
@@ -101,8 +101,8 @@ export function ContactSection() {
                   <Phone className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-white mb-1">Direct Line</h4>
-                  <a href="tel:+97140000000" className="text-gray-400 hover:text-primary transition-colors">+971 4 000 0000</a>
+                  <h4 className="text-lg font-bold text-white mb-1">Phone</h4>
+                  <a href="tel:+923177124207" className="text-gray-400 hover:text-primary transition-colors">+92 317 712 4207</a>
                 </div>
               </div>
 
@@ -112,7 +112,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h4 className="text-lg font-bold text-white mb-1">Email</h4>
-                  <a href="mailto:vip@eleva.com" className="text-gray-400 hover:text-primary transition-colors">vip@eleva.com</a>
+                  <a href="mailto:a77027785@gmail.com" className="text-gray-400 hover:text-primary transition-colors">a77027785@gmail.com</a>
                 </div>
               </div>
             </div>
