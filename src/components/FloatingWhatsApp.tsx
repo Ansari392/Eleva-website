@@ -4,7 +4,7 @@ import { MessageCircle } from "lucide-react";
 export function FloatingWhatsApp() {
   return (
     <motion.a
-      href="https://wa.me/971500000000"
+      href="https://wa.me/923177124207?text=Hello%20Eleva%20Properties!%20I%20am%20interested%20in%20one%20of%20your%20properties.%20Please%20share%20more%20details."
       target="_blank"
       rel="noopener noreferrer"
       initial={{ scale: 0, opacity: 0 }}
@@ -19,7 +19,7 @@ export function FloatingWhatsApp() {
       
       {/* Tooltip */}
       <span className="absolute right-full mr-4 bg-background border border-border text-white text-sm px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-xl pointer-events-none">
-        Chat with an agent
+        Chat with Eleva Properties
       </span>
     </motion.a>
   );
