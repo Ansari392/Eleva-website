@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import { SiFacebook, SiInstagram } from "react-icons/si";
 
 export function Footer() {
@@ -77,8 +78,17 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Eleva Properties. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-sm text-gray-500">
-            <span className="hover:text-white cursor-pointer transition-colors">Privacy Policy</span>
-            <span className="hover:text-white cursor-pointer transition-colors">Terms of Service</span>
+            <Link href="/privacy-policy">
+            <span className="hover:text-white cursor-pointer transition-colors">
+            Privacy Policy
+            </span>
+            </Link>
+
+        <Link href="/terms-of-service">
+          <span className="hover:text-white cursor-pointer transition-colors">
+          Terms of Service
+          </span>
+          </Link>
           </div>
         </div>
       </div>
