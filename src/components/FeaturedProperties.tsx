@@ -11,7 +11,7 @@ const properties = [
     beds: 4,
     baths: 5,
     area: "4,200",
-    image: "/property-1.png",
+    image: "/property-1.webp",
     type: "Penthouse"
   },
   {
@@ -22,7 +22,7 @@ const properties = [
     beds: 6,
     baths: 7,
     area: "8,500",
-    image: "/property-2.png",
+    image: "/property-2.webp",
     type: "Villa"
   },
   {
@@ -33,7 +33,7 @@ const properties = [
     beds: 2,
     baths: 3,
     area: "1,800",
-    image: "/property-3.png",
+    image: "/property-3.webp",
     type: "Apartment"
   },
   {
@@ -44,7 +44,7 @@ const properties = [
     beds: 5,
     baths: 6,
     area: "6,400",
-    image: "/property-4.png",
+    image: "/property-4.webp",
     type: "Mansion"
   },
   {
@@ -55,7 +55,7 @@ const properties = [
     beds: 3,
     baths: 4,
     area: "2,900",
-    image: "/property-5.png",
+    image: "/property-5.webp",
     type: "Penthouse"
   },
   {
@@ -66,7 +66,7 @@ const properties = [
     beds: 5,
     baths: 6,
     area: "7,200",
-    image: "/property-6.png",
+    image: "/property-6.webp",
     type: "Villa"
   }
 ];

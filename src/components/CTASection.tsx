@@ -15,7 +15,7 @@ export function CTASection() {
     <section className="py-24 relative overflow-hidden bg-background">
       <div className="absolute inset-0 z-0">
         <img 
-          src="/hero-bg.png" 
+          src="/hero-bg.webp" 
           alt="Dubai Background" 
           className="w-full h-full object-cover object-center opacity-20"
         />

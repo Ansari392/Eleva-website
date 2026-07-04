@@ -16,7 +16,7 @@ export function Hero() {
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/hero-bg.png" 
+          src="/hero-bg.webp" 
           alt="Luxury Dubai Skyline" 
           className="w-full h-full object-cover object-center"
         />
@@ -76,7 +76,7 @@ export function Hero() {
               className="bg-card/40 backdrop-blur-xl border border-white/10 p-4 rounded-2xl w-80 shadow-2xl absolute right-10"
             >
               <div className="relative h-48 rounded-xl overflow-hidden mb-4">
-                <img src="/property-1.png" alt="Featured Penthouse" className="w-full h-full object-cover" />
+                <img src="/property-1.webp" alt="Featured Penthouse" className="w-full h-full object-cover" />
                 <div className="absolute top-3 left-3 bg-background/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium text-white">
                   Featured
                 </div>
