@@ -12,6 +12,18 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  const handleLogin = () => {
+  if (
+    email === "admin@eleva.com" &&
+    password === "Eleva@123"
+  ) {
+    localStorage.setItem("admin", "true");
+    setLocation("/dashboard");
+  } else {
+    setError("Invalid Email or Password");
+  }
+};
+
   return (
     <div className="min-h-screen bg-background flex items-center justify-center px-4">
       <motion.div
@@ -86,9 +98,14 @@ export default function Login() {
               </button>
             </div>
           </div>
-
+          {error && (
+                <p className="text-red-500 text-sm text-center">
+          {error}
+                </p>
+            )}
           <button
-            type="submit"
+              type="button"
+              onClick={handleLogin}
             className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-semibold hover:opacity-90 transition"
           >
             Login
