@@ -119,11 +119,7 @@ export function FeaturedProperties() {
               className="bg-background border border-border rounded-2xl overflow-hidden group hover:border-primary/50 transition-all duration-300"
             >
               <div className="relative h-64 overflow-hidden">
-                <img
-                    src={property.image}
-                    alt={property.title}
-                    loading="lazy"decoding="async"className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-/>
+                <img src={property.image} alt={property.title} loading="lazy" decoding="async" width={600} height={400} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
                 <div className="absolute top-4 left-4 bg-background/90 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-medium text-white border border-white/10">
                   {property.type}

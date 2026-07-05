@@ -15,7 +15,14 @@ export function Footer() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="space-y-6">
-            <img src="/logo.jpeg" alt="Eleva Properties" className="h-12 w-auto rounded-sm opacity-90" />
+            <img
+            src="/logo.jpeg"
+            alt="Eleva Properties"
+            loading="lazy"
+            decoding="async"
+            width={180}
+            height={48}
+            className="h-12 w-auto rounded-sm opacity-90"/>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
               Dubai's premier luxury real estate agency, specializing in exclusive properties, bespoke investment strategies, and unparalleled client service.
             </p>
