@@ -18,7 +18,7 @@ function Router() {
     <Switch>
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/properties" component={Properties} />
-      <Route path="/properties/add" component={AddProperty} />
+      <Route path="/properties/add">{() => <AddProperty />}</Route>
       <Route path="/properties/edit/:id" component={EditProperty} />
       <Route path="/admin" component={Login} />
       <Route path="/" component={Home} />

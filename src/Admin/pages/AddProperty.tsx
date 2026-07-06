@@ -1,8 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Save } from "lucide-react";
 
-export default function AddProperty() {
-  const [formData, setFormData] = useState({
+type Property = {
+  id?: number;
+  title: string;
+  price: string;
+  location: string;
+  area: string;
+  bedrooms: string;
+  bathrooms: string;
+  description: string;
+  status: string;
+  featured: boolean;
+};
+
+interface AddPropertyProps {
+  property?: Property;
+}
+
+export default function AddProperty({
+  property,
+}: AddPropertyProps) {
+  const [formData, setFormData] = useState<Property>({
     title: "",
     price: "",
     location: "",
@@ -14,21 +33,37 @@ export default function AddProperty() {
     featured: false,
   });
 
-  const handleSave = () => {
-    console.log(formData);
-    alert("Property Saved Successfully!");
-  };
+  useEffect(() => {
+    if (property) {
+      setFormData(property);
+    }
+  }, [property]);
 
+  const handleSave = () => {
+    console.clear();
+    console.log("Property Data");
+    console.log(formData);
+
+    alert(
+      property
+        ? "Property Updated Successfully!"
+        : "Property Saved Successfully!"
+    );
+  };
   return (
     <div className="min-h-screen bg-background text-white p-8">
       <div className="max-w-5xl mx-auto">
 
         <div className="mb-10">
-          <h1 className="text-4xl font-bold">Add Property</h1>
+          <h1 className="text-4xl font-bold">
+            {property ? "Edit Property" : "Add Property"}
+          </h1>
 
           <p className="text-gray-400 mt-2">
-            Create a new luxury property listing.
-          </p>
+          {property
+          ? "Update your luxury property listing."
+          : "Create a new luxury property listing."}
+        </p>
         </div>
 
         <div className="bg-card border border-border rounded-2xl p-8">
@@ -160,6 +195,19 @@ export default function AddProperty() {
               type="file"
               className="w-full rounded-xl bg-background border border-border px-4 py-3"
             />
+              {property && (
+              <div className="mt-4">
+          <p className="text-sm text-gray-400 mb-2">
+          Current Image
+        </p>
+
+        <img
+        src="/logo.jpeg"
+        alt="Property"
+        className="w-48 rounded-xl border border-border"
+        />
+      </div>
+        )}
           </div>
 
           <div className="mt-6">
@@ -217,7 +265,9 @@ export default function AddProperty() {
                 className="mr-3 w-5 h-5"
               />
 
-              <span>Featured Property</span>
+              <span className="text-gray-300">
+                 Featured Property
+              </span>
 
             </div>
 
@@ -225,10 +275,10 @@ export default function AddProperty() {
 
           <button
             onClick={handleSave}
-            className="mt-10 flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold hover:opacity-90 transition"
+            className="mt-10 flex items-center justify-center gap-2 w-full md:w-fit px-8 py-3 rounded-xl bg-primary text-primary-foreground font-semibold hover:opacity-90 transition"
           >
             <Save size={18} />
-            Save Property
+            {property ? "Update Property" : "Save Property"}
           </button>
 
         </div>
