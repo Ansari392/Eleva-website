@@ -8,13 +8,16 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
-
+import Properties from "@/Admin/pages/Properties";
+import AddProperty from "@/Admin/pages/AddProperty";
 const queryClient = new QueryClient();
 
 function Router() {
   return (
     <Switch>
       <Route path="/dashboard" component={Dashboard} />
+      <Route path="/properties" component={Properties} />
+      <Route path="/properties/add" component={AddProperty} />
       <Route path="/admin" component={Login} />
       <Route path="/" component={Home} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
