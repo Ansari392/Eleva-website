@@ -36,10 +36,12 @@ export default function Sidebar() {
            </button>
         </Link>
 
+      <Link href="/testimonials">
         <button className="flex items-center gap-3 w-full px-4 py-3 rounded-xl hover:bg-secondary transition">
-          <Star size={20} />
-          Testimonials
+        <Star size={20} />
+        Testimonials
         </button>
+      </Link>
 
         <button className="flex items-center gap-3 w-full px-4 py-3 rounded-xl hover:bg-secondary transition">
           <Settings size={20} />

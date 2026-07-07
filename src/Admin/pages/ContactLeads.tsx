@@ -119,56 +119,73 @@ const handleDelete = (id: number) => {
 
           <tbody>
 
-            {filteredLeads.map((lead) => (
+  {filteredLeads.length > 0 ? (
 
-              <tr
-                key={lead.id}
-                className="border-t border-border hover:bg-secondary/30"
-              >
+    filteredLeads.map((lead) => (
 
-                <td className="p-5">{lead.name}</td>
+      <tr
+        key={lead.id}
+        className="border-t border-border hover:bg-secondary/30"
+      >
 
-                <td>{lead.email}</td>
+        <td className="p-5">{lead.name}</td>
 
-                <td>{lead.phone}</td>
+        <td>{lead.email}</td>
 
-                <td>
+        <td>{lead.phone}</td>
 
-                  <span className="px-3 py-1 rounded-full bg-blue-600 text-xs">
+        <td>
 
-                    {lead.status}
+          <span className="px-3 py-1 rounded-full bg-blue-600 text-xs">
 
-                  </span>
+            {lead.status}
 
-                </td>
+          </span>
 
-                <td>
+        </td>
 
-                  <div className="flex justify-center gap-4">
+        <td>
 
-                    <button
-                        onClick={() => setSelectedLead(lead)}
-                        className="text-blue-400 hover:text-blue-300"
-                        >
-                        <Eye size={18} />
-                    </button>
+          <div className="flex justify-center gap-4">
 
-                    <button
-                        onClick={() => handleDelete(lead.id)}
-                        className="text-red-400 hover:text-red-300"
-                        >
-                        <Trash2 size={18} />
-                    </button>
+            <button
+              onClick={() => setSelectedLead(lead)}
+              className="text-blue-400 hover:text-blue-300"
+            >
+              <Eye size={18} />
+            </button>
 
-                  </div>
+            <button
+              onClick={() => handleDelete(lead.id)}
+              className="text-red-400 hover:text-red-300"
+            >
+              <Trash2 size={18} />
+            </button>
 
-                </td>
+          </div>
 
-              </tr>
+        </td>
 
-            ))}
+      </tr>
 
-          </tbody>
+    ))
+
+  ) : (
+
+    <tr>
+
+      <td
+        colSpan={5}
+        className="text-center py-12 text-gray-400"
+      >
+        No Leads Found
+      </td>
+
+    </tr>
+
+  )}
+
+</tbody>
 
         </table>
 
