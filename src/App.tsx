@@ -1,3 +1,4 @@
+import Settings from "@/Admin/pages/Settings";
 import Login from "@/Admin/pages/Login";
 import Dashboard from "@/Admin/pages/Dashboard";
 import { Switch, Route, Router as WouterRouter } from "wouter";
@@ -14,6 +15,7 @@ import EditProperty from "@/Admin/pages/EditProperty";
 import ContactLeads from "@/Admin/pages/ContactLeads";
 import Testimonials from "@/Admin/pages/Testimonials";
 import AddTestimonial from "@/Admin/pages/AddTestimonial";
+import EditTestimonial from "@/Admin/pages/EditTestimonial";
 const queryClient = new QueryClient();
 
 function Router() {
@@ -26,6 +28,8 @@ function Router() {
       <Route path="/leads" component={ContactLeads} />
       <Route path="/testimonials" component={Testimonials} />
       <Route path="/testimonials/add" component={AddTestimonial} />
+      <Route path="/testimonials/edit/:id" component={EditTestimonial} />
+      <Route path="/settings" component={Settings} />
       <Route path="/admin" component={Login} />
       <Route path="/" component={Home} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />

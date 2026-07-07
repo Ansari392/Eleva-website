@@ -43,10 +43,12 @@ export default function Sidebar() {
         </button>
       </Link>
 
+      <Link href="/settings">
         <button className="flex items-center gap-3 w-full px-4 py-3 rounded-xl hover:bg-secondary transition">
-          <Settings size={20} />
-          Settings
+        <Settings size={20} />
+        Settings
         </button>
+      </Link>
 
       </nav>
 
