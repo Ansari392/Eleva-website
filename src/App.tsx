@@ -1,4 +1,5 @@
 import Settings from "@/Admin/pages/Settings";
+import "./firebase/firebase";
 import Login from "@/Admin/pages/Login";
 import Dashboard from "@/Admin/pages/Dashboard";
 import { Switch, Route, Router as WouterRouter } from "wouter";
