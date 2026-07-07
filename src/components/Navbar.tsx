@@ -77,7 +77,7 @@ export function Navbar() {
           </div>
 
           <div className="hidden lg:flex items-center space-x-4">
-            <a href="tel:+97140000000" className="flex items-center gap-2 text-sm font-medium text-gray-300 hover:text-primary transition-colors">
+            <a href="tel:+92177124207" className="flex items-center gap-2 text-sm font-medium text-gray-300 hover:text-primary transition-colors">
               <Phone size={16} />
               <span>Call Now</span>
             </a>
@@ -116,9 +116,9 @@ export function Navbar() {
             </button>
           ))}
           <div className="pt-4 border-t border-border flex flex-col space-y-4">
-            <a href="tel:+97140000000" className="flex items-center gap-2 text-base font-medium text-gray-300 hover:text-white">
+            <a href="tel:+92177124207" className="flex items-center gap-2 text-base font-medium text-gray-300 hover:text-white">
               <Phone size={18} />
-              <span>+971 4 000 0000</span>
+              <span>+92 177 124 207</span>
             </a>
             <Button onClick={() => scrollTo("contact")} className="w-full bg-primary text-primary-foreground">
               Free Consultation
