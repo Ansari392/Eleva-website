@@ -29,10 +29,12 @@ export default function Sidebar() {
             </button>
         </Link>
 
-        <button className="flex items-center gap-3 w-full px-4 py-3 rounded-xl hover:bg-secondary transition">
+        <Link href="/leads">
+          <button className="flex items-center gap-3 w-full px-4 py-3 rounded-xl hover:bg-secondary transition">
           <MessageSquare size={20} />
-          Leads
-        </button>
+          Contact Leads
+           </button>
+        </Link>
 
         <button className="flex items-center gap-3 w-full px-4 py-3 rounded-xl hover:bg-secondary transition">
           <Star size={20} />

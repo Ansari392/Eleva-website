@@ -11,6 +11,7 @@ import TermsOfService from "@/pages/TermsOfService";
 import Properties from "@/Admin/pages/Properties";
 import AddProperty from "@/Admin/pages/AddProperty";
 import EditProperty from "@/Admin/pages/EditProperty";
+import ContactLeads from "@/Admin/pages/ContactLeads";
 const queryClient = new QueryClient();
 
 function Router() {
@@ -20,6 +21,7 @@ function Router() {
       <Route path="/properties" component={Properties} />
       <Route path="/properties/add">{() => <AddProperty />}</Route>
       <Route path="/properties/edit/:id" component={EditProperty} />
+      <Route path="/leads" component={ContactLeads} />
       <Route path="/admin" component={Login} />
       <Route path="/" component={Home} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />

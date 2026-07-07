@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "wouter";
 import {
   Plus,
@@ -6,29 +7,41 @@ import {
 } from "lucide-react";
 
 export default function Properties() {
-  const properties = [
-    {
-      id: 1,
-      image: "/logo.jpeg",
-      title: "Luxury Palm Villa",
-      price: "$2.4M",
-      status: "Active",
-    },
-    {
-      id: 2,
-      image: "/logo.jpeg",
-      title: "Downtown Apartment",
-      price: "$980K",
-      status: "Active",
-    },
-    {
-      id: 3,
-      image: "/logo.jpeg",
-      title: "Beach Mansion",
-      price: "$5.2M",
-      status: "Draft",
-    },
-  ];
+  const [properties, setProperties] = useState([
+  {
+    id: 1,
+    image: "/logo.jpeg",
+    title: "Luxury Palm Villa",
+    price: "$2.4M",
+    status: "Active",
+  },
+  {
+    id: 2,
+    image: "/logo.jpeg",
+    title: "Downtown Apartment",
+    price: "$980K",
+    status: "Active",
+  },
+  {
+    id: 3,
+    image: "/logo.jpeg",
+    title: "Beach Mansion",
+    price: "$5.2M",
+    status: "Draft",
+  },
+]);
+
+const handleDelete = (id: number) => {
+  const confirmDelete = window.confirm(
+    "Are you sure you want to delete this property?"
+  );
+
+  if (!confirmDelete) return;
+
+  setProperties((prev) =>
+    prev.filter((property) => property.id !== id)
+  );
+};
 
   return (
     <div className="text-white">
@@ -95,8 +108,11 @@ export default function Properties() {
                     </button>
                   </Link>
 
-                    <button className="text-red-400 hover:text-red-300">
-                      <Trash2 size={18} />
+                    <button
+                      onClick={() => handleDelete(property.id)}
+                      className="text-red-400 hover:text-red-300"
+                    >
+                    <Trash2 size={18} />
                     </button>
                   </div>
                 </td>
