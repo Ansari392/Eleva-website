@@ -1,8 +1,14 @@
+import { useLocation } from "wouter";
+import { db } from "@/firebase/firebase";
+import {
+  collection,
+  addDoc,
+} from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { Save } from "lucide-react";
 
 type Property = {
-  id?: number;
+  id?: string;
   title: string;
   price: string;
   location: string;
@@ -21,6 +27,9 @@ interface AddPropertyProps {
 export default function AddProperty({
   property,
 }: AddPropertyProps) {
+
+  const [, navigate] = useLocation();
+
   const [formData, setFormData] = useState<Property>({
     title: "",
     price: "",
@@ -39,17 +48,54 @@ export default function AddProperty({
     }
   }, [property]);
 
-  const handleSave = () => {
-    console.clear();
-    console.log("Property Data");
-    console.log(formData);
+  const handleSave = async () => {
+  if (
+    !formData.title ||
+    !formData.price ||
+    !formData.location
+  ) {
+    alert("Please fill all required fields.");
+    return;
+  }
 
-    alert(
-      property
-        ? "Property Updated Successfully!"
-        : "Property Saved Successfully!"
-    );
-  };
+  try {
+    await addDoc(collection(db, "properties"), {
+      title: formData.title,
+      price: Number(formData.price),
+      location: formData.location,
+      area: Number(formData.area),
+      bedrooms: Number(formData.bedrooms),
+      bathrooms: Number(formData.bathrooms),
+      description: formData.description,
+      status: formData.status,
+      featured: formData.featured,
+      image:
+        "https://picsum.photos/600/400?random=" +
+        Math.floor(Math.random() * 1000),
+      createdAt: new Date(),
+    });
+
+    alert("Property Saved Successfully!");
+
+    setFormData({
+      title: "",
+      price: "",
+      location: "",
+      area: "",
+      bedrooms: "",
+      bathrooms: "",
+      description: "",
+      status: "Active",
+      featured: false,
+    });
+
+    navigate("/properties");
+
+  } catch (error) {
+    console.error(error);
+    alert("Something went wrong");
+  }
+};
   return (
     <div className="min-h-screen bg-background text-white p-8">
       <div className="max-w-5xl mx-auto">

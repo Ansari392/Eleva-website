@@ -1,46 +1,43 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
+import { Plus, Pencil, Trash2 } from "lucide-react";
+
+import { db } from "@/firebase/firebase";
 import {
-  Plus,
-  Pencil,
-  Trash2,
-} from "lucide-react";
+  collection,
+  getDocs,
+  deleteDoc,
+  doc,
+} from "firebase/firestore";
 
 export default function Properties() {
-  const [properties, setProperties] = useState([
-  {
-    id: 1,
-    image: "/logo.jpeg",
-    title: "Luxury Palm Villa",
-    price: "$2.4M",
-    status: "Active",
-  },
-  {
-    id: 2,
-    image: "/logo.jpeg",
-    title: "Downtown Apartment",
-    price: "$980K",
-    status: "Active",
-  },
-  {
-    id: 3,
-    image: "/logo.jpeg",
-    title: "Beach Mansion",
-    price: "$5.2M",
-    status: "Draft",
-  },
-]);
+  const [properties, setProperties] = useState<any[]>([]);
 
-const handleDelete = (id: number) => {
+  useEffect(() => {
+  loadProperties();
+}, []);
+
+const loadProperties = async () => {
+  const snapshot = await getDocs(collection(db, "properties"));
+
+  const data = snapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
+
+  setProperties(data);
+};
+
+const handleDelete = async (id: string) => {
   const confirmDelete = window.confirm(
     "Are you sure you want to delete this property?"
   );
 
   if (!confirmDelete) return;
 
-  setProperties((prev) =>
-    prev.filter((property) => property.id !== id)
-  );
+  await deleteDoc(doc(db, "properties", id));
+
+  loadProperties();
 };
 
   return (
@@ -84,7 +81,7 @@ const handleDelete = (id: number) => {
               >
                 <td className="p-5">
                   <img
-                    src={property.image}
+                    src={property.image || "/logo.jpeg"}
                     alt={property.title}
                     className="w-20 h-14 rounded-lg object-cover"
                   />
@@ -92,27 +89,27 @@ const handleDelete = (id: number) => {
 
                 <td>{property.title}</td>
 
-                <td>{property.price}</td>
+                <td>AED {Number(property.price).toLocaleString()}</td>
 
                 <td>
                   <span className="px-3 py-1 rounded-full bg-green-600 text-xs">
-                    {property.status}
+                    {property.featured ? "Featured" : "Normal"}
                   </span>
                 </td>
 
                 <td>
                   <div className="flex items-center justify-center gap-3">
-                  <Link href={`/properties/edit/${property.id}`}>
-                    <button className="text-blue-400 hover:text-blue-300">
-                    <Pencil size={18} />
-                    </button>
-                  </Link>
+                    <Link href={`/properties/edit/${property.id}`}>
+                      <button className="text-blue-400 hover:text-blue-300">
+                        <Pencil size={18} />
+                      </button>
+                    </Link>
 
                     <button
                       onClick={() => handleDelete(property.id)}
                       className="text-red-400 hover:text-red-300"
                     >
-                    <Trash2 size={18} />
+                      <Trash2 size={18} />
                     </button>
                   </div>
                 </td>
